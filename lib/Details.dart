@@ -20,11 +20,22 @@ class DetailsPage extends StatelessWidget {
             children: [
               Image.network(character.image, fit: BoxFit.fill,),
               SizedBox(height: 14,),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(character.name),
+              Row(
+                  children: [
+                    Text("Name:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                    SizedBox(width: 12,),
+                    Text(character.name, style: TextStyle(fontSize: 15,),),
+                  ],
+                ),
+
+              Divider(color: Colors.red,),
+              Row(
+                children: [
+                  Text("Gender:"),
+                  SizedBox(width: 15,),
+                  Text(character.gender),
+                ],
               ),
-              Divider(color: Colors.red,)
             ],
           ),
         ),

@@ -10,6 +10,7 @@ class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text(character.name),
@@ -28,14 +29,30 @@ class DetailsPage extends StatelessWidget {
                   ],
                 ),
 
-              Divider(color: Colors.red,),
+              Divider(color: Colors.red, thickness: 1,),
               Row(
                 children: [
-                  Text("Gender:"),
+                  Text("Gender:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
                   SizedBox(width: 15,),
                   Text(character.gender),
                 ],
               ),
+              Divider(color: Colors.red, thickness: 1,),
+              Row(
+                children: [
+                  Text("Species:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                  SizedBox(width: 15,),
+                  Text(character.species),
+                ],
+              ),
+              Divider(color: Colors.red, thickness: 1,),
+              Row(
+                children: [
+                  Text("status:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                  SizedBox(width: 15,),
+                  Text(character.status),
+                ],
+              )
             ],
           ),
         ),

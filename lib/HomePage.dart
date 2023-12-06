@@ -39,17 +39,32 @@ class _HomePageState extends State<HomePage> {
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage(character: character,)));
                   },
-                  child: Container(
-                    width: 200.0,
-                    height: 300.0,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                character.image
-                            ),
-                            fit: BoxFit.cover
-                        ),
+                  child: Stack(
+                    children:
+                    [
+                      Container(
+                      height: 300.0,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  character.image
+                              ),
+                              fit: BoxFit.cover
+                          ),
+                      ),
                     ),
+                      Positioned(
+                        bottom: 1,
+                        right: 1,
+                        left: 1,
+                        child: Container(
+                          width: 60,
+                          height: 30,
+                          color: Colors.black,
+                          child: Center(child: Text(character.name, style: TextStyle(color: Colors.white),)),
+                        ),
+                      )
+                  ],
                   ),
                 );
             },

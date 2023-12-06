@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 class Character {
-  int id;
+  var id;
   String name;
   String status;
   String species;

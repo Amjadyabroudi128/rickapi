@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:rickandmorty/Details.dart';
 import 'HomePage.dart';
 
 void main() {
@@ -13,7 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage()
+        home: HomePage(),
+      routes: {
+          "home" : (context) => HomePage(),
+      },
     );
   }
 }

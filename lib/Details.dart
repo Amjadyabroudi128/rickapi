@@ -22,8 +22,17 @@ class DetailsPage extends StatelessWidget {
               Image.network(character.image, fit: BoxFit.fill,),
               SizedBox(height: 14,),
               Row(
+                children: [
+                  Text("  ID:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                  SizedBox(width: 12,),
+                  Text(character.id.toString(), style: TextStyle(fontSize: 15,),),
+                ],
+              ),
+
+              Divider(color: Colors.red, thickness: 1,),
+              Row(
                   children: [
-                    Text("Name:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                    Text("  Name:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
                     SizedBox(width: 12,),
                     Text(character.name, style: TextStyle(fontSize: 15,),),
                   ],
@@ -32,7 +41,7 @@ class DetailsPage extends StatelessWidget {
               Divider(color: Colors.red, thickness: 1,),
               Row(
                 children: [
-                  Text("Gender:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                  Text(" Gender:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
                   SizedBox(width: 15,),
                   Text(character.gender),
                 ],
@@ -40,7 +49,7 @@ class DetailsPage extends StatelessWidget {
               Divider(color: Colors.red, thickness: 1,),
               Row(
                 children: [
-                  Text("Species:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                  Text(" Species:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
                   SizedBox(width: 15,),
                   Text(character.species),
                 ],
@@ -48,7 +57,7 @@ class DetailsPage extends StatelessWidget {
               Divider(color: Colors.red, thickness: 1,),
               Row(
                 children: [
-                  Text("status:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                  Text(" status:", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
                   SizedBox(width: 15,),
                   Text(character.status),
                 ],

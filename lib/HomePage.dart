@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                           width: 60,
                           height: 30,
-                          color: Colors.black,
+                          color: Colors.black38,
                           child: Center(child: Text(character.name, style: TextStyle(color: Colors.white),)),
                         ),
                       )

@@ -76,47 +76,6 @@ class _HomePageState extends State<HomePage> {
               crossAxisCount: 2, mainAxisExtent: 200,
             ),
             );
-            // return ListView.separated
-            //   (itemBuilder: (context, index) {
-            //     Character character = snapshot.data?[index];
-            //     return GestureDetector(
-            //       onTap: (){
-            //         Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage(character: character,)));
-            //       },
-            //       child: Stack(
-            //         children:
-            //         [
-            //           Container(
-            //           height: 300.0,
-            //           decoration: BoxDecoration(
-            //               image: DecorationImage(
-            //                   image: NetworkImage(
-            //                       character.image
-            //                   ),
-            //                   fit: BoxFit.cover
-            //               ),
-            //           ),
-            //         ),
-            //           Positioned(
-            //             bottom: 1,
-            //             right: 1,
-            //             left: 1,
-            //             child: Container(
-            //               width: 60,
-            //               height: 30,
-            //               color: Colors.black38,
-            //               child: Center(child: Text(character.name, style: TextStyle(color: Colors.white),)),
-            //             ),
-            //           )
-            //       ],
-            //       ),
-            //     );
-            // },
-            //     separatorBuilder
-            //         : (context, index){
-            //       return Divider(color: Colors.black26,);
-            //     },
-            //     itemCount: snapshot.data.length);
     } else if (snapshot.hasError) {
             return Text('Error ${snapshot.error}');
           }

@@ -15,11 +15,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late Future<List<Character>> futureCharacter;
-  late Future<List<Character>> deleteCharacter;
   @override
   void initState() {
     super.initState();
     futureCharacter = CharacterService().getCharacter();
+  }
+  Future<List<Character>> deleteCharacter(int id) async {
+    final response = await http.delete(Uri.parse("https://rickandmortyapi.com/api/character $id"));
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body);
+    } else {
+      throw Exception("delete failed");
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -69,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                         TextButton(onPressed: (){
                           setState(() {
-                            deleteCharacter = CharacterService().deleteCharacter(character.name);
+                            deleteCharacter(character.id);
                           });
                         }, child: Text("delete"))
                       ],

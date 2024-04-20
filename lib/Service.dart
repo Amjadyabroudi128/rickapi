@@ -41,4 +41,12 @@ class CharacterService {
       throw Exception('failed');
     }
   }
+  Future<List<Character>> deleteCharacter(String id) async {
+    final response = await http.delete(Uri.parse("https://rickandmortyapi.com/api/character $id"));
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body);
+    } else {
+      throw Exception("delete failed");
+    }
+  }
 }

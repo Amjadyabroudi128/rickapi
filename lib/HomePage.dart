@@ -15,6 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late Future<List<Character>> futureCharacter;
+  late Future<List<Character>> deleteCharacter;
   @override
   void initState() {
     super.initState();
@@ -33,7 +34,6 @@ class _HomePageState extends State<HomePage> {
     builder: ( context, AsyncSnapshot snapshot) {
           if(snapshot.hasData){
             return GridView.builder(
-
               itemCount: snapshot.data.length,
               itemBuilder: (context, index) {
                 Character character = snapshot.data?[index];
@@ -66,7 +66,12 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.black38,
                                       child: Center(child: Text(character.name, style: TextStyle(color: Colors.white),)),
                                     ),
-                                  )
+                                  ),
+                        TextButton(onPressed: (){
+                          setState(() {
+                            deleteCharacter = CharacterService().deleteCharacter(character.name);
+                          });
+                        }, child: Text("delete"))
                       ],
                     ),
                   ),

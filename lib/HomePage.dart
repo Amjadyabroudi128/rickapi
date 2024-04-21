@@ -67,21 +67,18 @@ class _HomePageState extends State<HomePage> {
                                       child: Center(child: Text(character.name, style: TextStyle(color: Colors.white),)),
                                     ),
                                   ),
-                        // TextButton(onPressed: ()  async {
-                        //   List<Character> currentCharacters = await futureCharacter;
-                        //   int characterIdToDelete = character.id;
-                        //   futureCharacter = CharacterService().deleteCharacter(currentCharacters, characterIdToDelete);
-                        //   setState(() {
-                        //     futureCharacter = futureCharacter;
-                        //   });
-                        // }, child: Text("delete"))
                         Positioned(
                           right: 50,
                           child: MaterialButton(
                             height: 40,
                             color: Colors.lightBlue,
-                            onPressed: () {
-
+                            onPressed: () async {
+                              List<Character> currentCharacters = await futureCharacter;
+                              int characterIdToDelete = character.id;
+                              futureCharacter = CharacterService().deleteCharacter(currentCharacters, characterIdToDelete);
+                              setState(() {
+                                futureCharacter = futureCharacter;
+                              });
                           }, child: Text("delete"),),
                         )
                       ],

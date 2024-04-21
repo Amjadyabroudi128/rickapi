@@ -19,14 +19,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     futureCharacter = CharacterService().getCharacter();
-  }
-  Future<List<Character>> deleteCharacter(int id) async {
-    final response = await http.delete(Uri.parse("https://rickandmortyapi.com/api/character $id"));
-    if (response.statusCode == 200) {
-      return jsonDecode(response.body);
-    } else {
-      throw Exception("delete failed");
-    }
+
   }
   @override
   Widget build(BuildContext context) {
@@ -74,9 +67,12 @@ class _HomePageState extends State<HomePage> {
                                       child: Center(child: Text(character.name, style: TextStyle(color: Colors.white),)),
                                     ),
                                   ),
-                        TextButton(onPressed: (){
+                        TextButton(onPressed: ()  async {
+                          List<Character> currentCharacters = await futureCharacter;
+                          int characterIdToDelete = character.id;
+                          futureCharacter = CharacterService().deleteCharacter(currentCharacters, characterIdToDelete);
                           setState(() {
-                            deleteCharacter(character.id);
+                            futureCharacter = futureCharacter;
                           });
                         }, child: Text("delete"))
                       ],
